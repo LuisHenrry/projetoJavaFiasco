@@ -13,4 +13,9 @@ public class Controller {
     public String boasvindas(){
         return "oi, eu sou o luis";
     }
+
+    @GetMapping("/voltesempre")
+    public String voltesempre(){
+        return "volte sempre, até mais...";
+    }
 }
