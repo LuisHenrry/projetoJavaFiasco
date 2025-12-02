@@ -11,7 +11,7 @@ public class Controller {
 
     @GetMapping("/boasvindas")
     public String boasvindas(){
-        return "oi, eu sou o luis";
+        return "Boas vindas, Sou o Luis Henrique e esse é um projeto de aprendizadoWP";
     }
 
     @GetMapping("/voltesempre")
