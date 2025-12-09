@@ -1,7 +1,6 @@
-package com.fiascojava.projetoFiascoSpring;
+package com.fiascojava.projetoFiascoSpring.ninjas;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
 
     @GetMapping("/boasvindas")
+
     public String boasvindas(){
         return "Boas vindas, Sou o Luis Henrique e esse é um projeto de aprendizadoWP";
     }

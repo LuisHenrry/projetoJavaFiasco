@@ -1,4 +1,4 @@
-package com.fiascojava.projetoFiascoSpring;
+package com.fiascojava.projetoFiascoSpring.ninjas;
 
 @org.springframework.stereotype.Service
 public class Service {

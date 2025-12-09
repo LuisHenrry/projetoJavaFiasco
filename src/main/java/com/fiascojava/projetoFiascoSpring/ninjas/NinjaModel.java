@@ -1,7 +1,10 @@
-package com.fiascojava.projetoFiascoSpring;
+package com.fiascojava.projetoFiascoSpring.ninjas;
 
 
+import com.fiascojava.projetoFiascoSpring.missoes.missionModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 
 // Entity transforma uma classe em uma entidade como uma tabela com colunas e tal
@@ -16,6 +19,10 @@ public class NinjaModel {
     private String nome;
     private int idade;
     private String email;
+
+    @ManyToOne
+    @JoinColumn(name = "missao_id")
+    private List<missionModel> missoes ;
 
     public NinjaModel(String nome, int idade, String email) {
         this.nome = nome;
