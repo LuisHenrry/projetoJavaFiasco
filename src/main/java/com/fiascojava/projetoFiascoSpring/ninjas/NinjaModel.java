@@ -1,7 +1,7 @@
 package com.fiascojava.projetoFiascoSpring.ninjas;
 
 
-import com.fiascojava.projetoFiascoSpring.missoes.missionModel;
+import com.fiascojava.projetoFiascoSpring.missoes.MissionModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,8 +21,12 @@ public class NinjaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Column(name = "id_PK")
     private Long id;
+    @Column(name = "nameNinja")
     private String nome;
+    @Column(name = "age")
     private int idade;
 
     @Column(unique = true)
@@ -30,6 +34,6 @@ public class NinjaModel {
 
     @ManyToOne
     @JoinColumn(name = "missao_id")
-    private List<missionModel> missoes ;
+    private List<MissionModel> missoes ;
 
 }

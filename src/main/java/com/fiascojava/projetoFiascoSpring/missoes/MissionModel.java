@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "tb_missoes")
-public class missionModel {
+public class MissionModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +19,7 @@ public class missionModel {
     @OneToMany(mappedBy = "missao")
     private List<NinjaModel> ninjaAtribuido;
 
-    public missionModel(String rank, String nome, NinjaModel n) {
+    public MissionModel(String rank, String nome, NinjaModel n) {
         this.rank = rank;
         this.nome = nome;
         this.ninjaAtribuido.add(n);

@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping
 @Slf4j
-public class Controller {
+public class NinjaController {
 
-    private static final Logger log = LoggerFactory.getLogger(Controller.class);
+    private static final Logger log = LoggerFactory.getLogger(NinjaController.class);
 
     @GetMapping("/boasvindas")
 
