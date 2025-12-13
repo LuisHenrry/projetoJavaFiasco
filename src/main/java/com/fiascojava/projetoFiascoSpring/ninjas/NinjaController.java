@@ -18,7 +18,7 @@ public class NinjaController {
 
     public String boasvindas(){
         log.info("Passou pelo boas vindas");
-        return "Boas vindas, Sou o Luis Henrique e esse é um projeto de aprendizadoWP";
+        return "Boas vindas, Sou o Luis Henrique e esse é um projeto de aprendizado!";
     }
 
     @GetMapping("/voltesempre")

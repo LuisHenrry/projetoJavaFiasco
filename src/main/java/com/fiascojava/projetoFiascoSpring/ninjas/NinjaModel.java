@@ -10,9 +10,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 
-// Entity transforma uma classe em uma entidade como uma tabela com colunas e tal
 @Entity
-// Cria o nome da tabela
 @Table(name = "tb_cadastro")
 @Data
 @AllArgsConstructor
@@ -21,19 +19,24 @@ public class NinjaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Column(name = "id_PK")
     private Long id;
+
     @Column(name = "nameNinja")
     private String nome;
+
     @Column(name = "age")
     private int idade;
 
     @Column(unique = true)
     private String email;
 
-    @ManyToOne
-    @JoinColumn(name = "missao_id")
-    private List<MissionModel> missoes ;
-
+    @ManyToMany
+    @JoinTable(
+            name = "tb_ninja_missoes",
+            joinColumns = @JoinColumn(name = "ninja_id"),
+            inverseJoinColumns = @JoinColumn(name = "missao_id")
+    )
+    private List<MissionModel> missoes;
 }
+
