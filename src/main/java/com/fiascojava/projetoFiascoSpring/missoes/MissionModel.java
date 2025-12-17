@@ -24,7 +24,7 @@ public class MissionModel {
 
     private String rank;
 
-    @ManyToMany(mappedBy = "missoes")
+    @OneToMany(mappedBy = "missoes")
     private List<NinjaModel> ninjaAtribuido;
 
 }

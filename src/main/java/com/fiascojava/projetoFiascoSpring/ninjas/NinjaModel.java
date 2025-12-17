@@ -31,12 +31,8 @@ public class NinjaModel {
     @Column(unique = true)
     private String email;
 
-    @ManyToMany
-    @JoinTable(
-            name = "tb_ninja_missoes",
-            joinColumns = @JoinColumn(name = "ninja_id"),
-            inverseJoinColumns = @JoinColumn(name = "missao_id")
-    )
-    private List<MissionModel> missoes;
+    @ManyToOne
+    @JoinColumn(name = "missoes_id")
+    private MissionModel missoes;
 }
 
