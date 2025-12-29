@@ -1,5 +1,6 @@
 package com.fiascojava.projetoFiascoSpring.missoes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fiascojava.projetoFiascoSpring.ninjas.NinjaModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -25,6 +26,7 @@ public class MissionModel {
     private String rank;
 
     @OneToMany(mappedBy = "missoes")
+    @JsonIgnore
     private List<NinjaModel> ninjaAtribuido;
 
 }
