@@ -26,25 +26,25 @@ public class NinjaController {
     }
 
     // CREATE:  Create ninjas
-    @PostMapping("/criarninja")
-    public String criarNinja(){
-        return "Ninja Criado";
+    @PostMapping("/criar")
+    public NinjaModel criarNinja(@RequestBody NinjaModel ninja){ // --- requestBody ta pegando o corpo como nome, idade e tal (formato json)
+        return ninjaService.criarNinja(ninja);
     }
 
     // READ: Show all ninjas
-    @GetMapping("/mostrarninja")
+    @GetMapping("/mostrar")
     public List<NinjaModel> mostrarNinja(){
         return ninjaService.listarTodosNinjas();
     }
 
     // READ: Show ninjas by ID
-    @GetMapping("/mostrarninja/{id}")
+    @GetMapping("/mostrar/{id}")
     public NinjaModel mostrarNinjaPorId(@PathVariable Long id){
         return ninjaService.listarNinjaId(id);
     }
 
     // UPDATE: Alter data of ninajs
-    @PostMapping("/atualizarninjaid")
+    @PostMapping("/atualizarid")
     public String atualizarNinja(){
         return "atualizarNinja";
     }

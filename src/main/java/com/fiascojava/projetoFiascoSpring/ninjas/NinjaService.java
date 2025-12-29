@@ -21,6 +21,9 @@ public class NinjaService {
         Optional<NinjaModel> usuarioResgatado = ninjaRepository.findById(id);
         return usuarioResgatado.orElse(null);
     }
-    // editar ninja
+    //criação de ninja
+    public NinjaModel criarNinja(NinjaModel ninja){
+        return ninjaRepository.save(ninja);
+    }
 
 }
