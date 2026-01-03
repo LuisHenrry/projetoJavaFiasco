@@ -1,6 +1,5 @@
 package com.fiascojava.projetoFiascoSpring.ninjas;
 
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -44,9 +43,9 @@ public class NinjaController {
     }
 
     // UPDATE: Alter data of ninajs
-    @PostMapping("/atualizarid")
-    public String atualizarNinja(){
-        return "atualizarNinja";
+    @PutMapping("/atualizar/{id}")
+    public NinjaModel atualizarNinja(@PathVariable Long id, @RequestBody NinjaModel ninja){
+        return ninjaService.atualizarNinja(id, ninja);
     }
 
     // DELETE: remove ninjas
