@@ -22,8 +22,10 @@ public class NinjaService {
         return usuarioResgatado.orElse(null);
     }
     //criação de ninja
-    public NinjaModel criarNinja(NinjaModel ninja){
-        return ninjaRepository.save(ninja);
+    public NinjaDTO criarNinja(NinjaDTO ninja){
+        NinjaModel ninjaModel = NinjaMAPPER.map(ninja);
+        ninjaModel = ninjaRepository.save(ninjaModel);
+        return NinjaMAPPER.map(ninjaModel);
     }
     // deletar ninja
     public void deletarNinja(Long id){

@@ -11,7 +11,7 @@ import java.util.List;
 public class NinjaController {
 
     private static final Logger log = LoggerFactory.getLogger(NinjaController.class);
-
+    private NinjaDTO ninjaDTO;
     private NinjaService ninjaService;
 
     public NinjaController(NinjaService ninjaService) {
@@ -26,7 +26,7 @@ public class NinjaController {
 
     // CREATE:  Create ninjas
     @PostMapping("/criar")
-    public NinjaModel criarNinja(@RequestBody NinjaModel ninja){ // --- requestBody ta pegando o corpo como nome, idade e tal (formato json)
+    public NinjaDTO criarNinja(@RequestBody NinjaDTO ninja){ // --- requestBody ta pegando o corpo como nome, idade e tal (formato json)
         return ninjaService.criarNinja(ninja);
     }
 
