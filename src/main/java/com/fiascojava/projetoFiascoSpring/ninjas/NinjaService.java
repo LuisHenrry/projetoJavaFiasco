@@ -13,13 +13,14 @@ public class NinjaService {
         this.ninjaRepository = ninjaRepository;
     }
 
-    public List<NinjaModel> listarTodosNinjas(){
-        return ninjaRepository.findAll();
+    public List<NinjaDTO> listarTodosNinjas(){
+        List<NinjaModel> ninjas = ninjaRepository.findAll();
+        return ninjas.stream().map(NinjaMAPPER::map).toList();
     }
     // pegar ninja por id
-    public NinjaModel listarNinjaId(Long id){
+    public NinjaDTO listarNinjaId(Long id){
         Optional<NinjaModel> usuarioResgatado = ninjaRepository.findById(id);
-        return usuarioResgatado.orElse(null);
+        return usuarioResgatado.map(NinjaMAPPER::map).orElse(null);
     }
     //criação de ninja
     public NinjaDTO criarNinja(NinjaDTO ninja){
@@ -28,19 +29,23 @@ public class NinjaService {
         return NinjaMAPPER.map(ninjaModel);
     }
     // deletar ninja
-    public void deletarNinja(Long id){
+    public String deletarNinja(Long id){
         if(ninjaRepository.findById(id).isPresent()){
+            NinjaModel ninja = ninjaRepository.getById(id);
             ninjaRepository.deleteById(id);
+            return "Usuario : "+ninja.getNome()+" foi deletado";
         }
+        return "Nenhum usuario encontrado...";
     }
     // atualizar ninja
-    public NinjaModel atualizarNinja(Long id, NinjaModel ninjaAtualizado){
-        if(ninjaRepository.existsById(id)){
-            System.out.println("existe esse ID");
-            ninjaAtualizado.setId(id);
-            return ninjaRepository.save(ninjaAtualizado);
+    public NinjaDTO atualizarNinja(Long id, NinjaDTO ninjaDTO){
+        Optional<NinjaModel> ninjaExistente = ninjaRepository.findById(id);
+        if(ninjaExistente.isPresent()){
+            NinjaModel ninjamodel = NinjaMAPPER.map(ninjaDTO);
+            ninjamodel.setId(id);
+            NinjaModel ninjaSalvo = ninjaRepository.save(ninjamodel);
+            return NinjaMAPPER.map(ninjaSalvo);
         }
-        System.out.println("não existe");
         return null;
     }
 }
