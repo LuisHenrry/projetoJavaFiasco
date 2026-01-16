@@ -1,0 +1,3 @@
+
+ALTER TABLE tb_cadastro
+ADD COLUMN vila VARCHAR(200);
