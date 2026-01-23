@@ -59,6 +59,11 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- THYMELEAF PARA CONEXÃO COMO FRONTEND -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
 
 	</dependencies>
 

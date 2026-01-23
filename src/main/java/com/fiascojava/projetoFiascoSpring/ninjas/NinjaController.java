@@ -13,8 +13,7 @@ import java.util.List;
 public class NinjaController {
 
     private static final Logger log = LoggerFactory.getLogger(NinjaController.class);
-    private NinjaDTO ninjaDTO;
-    private NinjaService ninjaService;
+    private final NinjaService ninjaService;
 
 
     public NinjaController(NinjaService ninjaService) {
@@ -74,6 +73,7 @@ public class NinjaController {
             ninjaService.deletarNinja(id);
             return ResponseEntity.ok("Usuario deletado com sucesso!");
         } else {
+
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario não encontrado!");
         }
     }
